@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test-ct": "playwright test -c playwright-ct.config.ts"
+    "test-ct": "playwright test --config=playwright-ct.config.ts"
   },
   "dependencies": {
     "next": "15.3.4",

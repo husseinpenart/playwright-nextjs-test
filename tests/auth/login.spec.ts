@@ -17,7 +17,7 @@ test.describe("Login entry", () => {
 
     // ??? save cookies or localstorage or sessions
     await page.context().storageState({ path: "storage/logged-in.json" });
-z  });
+  });
 
   test("destructive", async ({ page }) => {
     await page.getByLabel("Username").fill("wrtong");
