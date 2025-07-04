@@ -46,3 +46,7 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+/screenshots
+/screenshot
+/playwright-report
+/test-results
