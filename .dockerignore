@@ -1,17 +1,7 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# Dependencies
+# Ignore node_modules
 node_modules/
-.pnp/
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
 
-# Testing
-coverage/
+# Ignore Playwright-related files and directories
 playwright-report/
 test-results/
 blob-report/
@@ -22,29 +12,18 @@ tests/artifacts/test-results/
 tests/artifacts/storage/
 storage/
 
-# Next.js
+# Ignore other common files and directories
 .next/
 out/
-
-# Production
 build/
-
-# Misc
+coverage/
 .DS_Store
 *.pem
-
-# Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
-
-# Environment files (can opt-in for committing if needed)
 .env*
-
-# Vercel
 .vercel/
-
-# TypeScript
 *.tsbuildinfo
 next-env.d.ts

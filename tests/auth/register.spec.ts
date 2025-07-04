@@ -1,4 +1,5 @@
 import test, { expect } from "@playwright/test";
+import { invalidUser, validUser } from "../helpers/fixtures";
 // !! Mocking apis
 test.describe("Mocking api", async () => {
   test("mocking apis", async ({ page }) => {
@@ -27,18 +28,20 @@ test.describe("register case", () => {
   });
   test("open register Page", async ({ page }) => {
     await expect(page).toHaveURL(/.*\/Register/);
-    await page.screenshot({ path: `screenshots/${test.info().title}.png` });
+    await page.screenshot({
+      path: `tests/artifacts/screenshots/${test.info().title}.png`,
+    });
   });
   test("register form", async ({ page }) => {
-    await page.getByPlaceholder("email").fill("hussein@gmail.com");
-    await page.getByPlaceholder("username").fill("husseinpenart");
-    await page.getByPlaceholder("password").fill("123456");
+    await page.getByPlaceholder("email").fill(validUser.email);
+    await page.getByPlaceholder("username").fill(validUser.username);
+    await page.getByPlaceholder("password").fill(validUser.password);
     await expect(page).toHaveURL(/.*\/Register/);
   });
   test("Error", async ({ page }) => {
-    await page.getByPlaceholder("email").fill("hussein@gmail.com");
-    await page.getByPlaceholder("username").fill("husseinpenart");
-    await page.getByPlaceholder("password").fill("123456");
+    await page.getByPlaceholder("email").fill(invalidUser.email);
+    await page.getByPlaceholder("username").fill(invalidUser.username);
+    await page.getByPlaceholder("password").fill(invalidUser.password);
     await expect(page.locator(".error")).toBeVisible();
   });
   test("Error message is visible", async ({ page }) => {

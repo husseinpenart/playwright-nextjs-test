@@ -25,10 +25,6 @@ test("get hero", async ({ page }) => {
   // await page.getByRole('link' , {name:'تماس با ما'}).click()
   // await expect(page).toHaveURL('/.*contact/' , {timeout:200000})
   await page.screenshot({
-    path: "screenshots/page.png",
-    fullPage: true,
-    timeout: 4000,
+    path: `tests/artifacts/screenshots/${test.info().title}.png`,
   });
 });
-
-

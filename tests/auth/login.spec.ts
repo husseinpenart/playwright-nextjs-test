@@ -1,4 +1,5 @@
 import test, { expect } from "@playwright/test";
+import { UserLogin } from "../helpers/login";
 
 test.describe("Login entry", () => {
   test.beforeEach(async ({ page }) => {
@@ -6,15 +7,13 @@ test.describe("Login entry", () => {
   });
   test("open login page", async ({ page }) => {
     await expect(page).toHaveURL(/.*\/Signin/);
-    await page.screenshot({ path: `screenshots/${test.info().title}.png` });
+    await page.screenshot({
+      path: `tests/artifacts/screenshots/${test.info().title}.png`,
+    });
   });
 
   test("login form", async ({ page }) => {
-    await page.getByLabel("Username").fill("hussein");
-    await page.getByLabel("Password").fill("123456");
-    await page.getByRole("button", { name: "Login" }).click();
-    await page.waitForURL("**/dashboard");
-
+    await UserLogin(page);
     // ??? save cookies or localstorage or sessions
     await page.context().storageState({ path: "storage/logged-in.json" });
   });
