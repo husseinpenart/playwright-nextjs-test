@@ -6,10 +6,7 @@ playwright-report/
 test-results/
 blob-report/
 playwright/.cache/
-tests/artifacts/screenshots/
-tests/artifacts/screenshot/
-tests/artifacts/test-results/
-tests/artifacts/storage/
+tests/artifacts/**/*.*
 storage/
 
 # Ignore other common files and directories
