@@ -14,10 +14,10 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests",
   outputDir: "tests/artifacts/test-results",
-
-  reporter: [
-    ["html", { outputFolder: "tests/artifacts/playwright-report", open: "never" }],
-  ],
+  reporter: [["line"], ["allure-playwright"]],
+  // reporter: [
+  //   ["html", { outputFolder: "tests/artifacts/playwright-report", open: "never" }],
+  // ],
 
   /* Run tests in files in parallel */
   fullyParallel: true,

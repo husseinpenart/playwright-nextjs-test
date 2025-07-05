@@ -1,7 +1,8 @@
 import test, { expect } from "@playwright/test";
 import { UserLogin } from "../helpers/login";
+// !! @smoke or @login or anything is Tag (Annotation) and filtering for testing
 
-test.describe("Login entry", () => {
+test.describe("@auth Login entry", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:3000/Signin");
   });
@@ -12,13 +13,14 @@ test.describe("Login entry", () => {
     });
   });
 
-  test("login form", async ({ page }) => {
+  test("@Login login form", async ({ page }) => {
     await UserLogin(page);
     // ??? save cookies or localstorage or sessions
     await page.context().storageState({ path: "storage/logged-in.json" });
   });
 
-  test("destructive", async ({ page }) => {
+  // @smoke or @login or anything is Tag (Annotation) and filtering for testing
+  test("@smoke destructive", async ({ page }) => {
     await page.getByLabel("Username").fill("wrtong");
     await page.getByLabel("Password").fill("passs");
     await page.getByRole("button", { name: "Login" }).click();

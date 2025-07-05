@@ -18,6 +18,8 @@ blob-report/
 playwright/.cache/
 tests/artifacts/**/*.*
 storage/
+allure-results/
+allure-report/
 
 # Next.js
 .next/
