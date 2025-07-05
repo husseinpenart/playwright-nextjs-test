@@ -20,7 +20,7 @@ tests/artifacts/**/*.*
 storage/
 allure-results/
 allure-report/
-
+snapshot.spec.ts-snapshots/
 # Next.js
 .next/
 out/

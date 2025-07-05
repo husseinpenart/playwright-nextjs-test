@@ -27,3 +27,12 @@ test("create post", async ({ request }) => {
   console.log("result posting: ", result);
   expect(result).toHaveProperty("id");
 });
+
+test("API response snapshot", async ({ request }) => {
+  const response = await request.get(
+    "https://jsonplaceholder.typicode.com/posts/1"
+  );
+  const data = await response.json();
+
+  expect(data).toMatchSnapshot("post-1.json");
+});
